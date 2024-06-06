@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Mistakes</h1>
+
+<div id="mistakes">
+  <% @mistakes.each do |mistake| %>
+    <%= render mistake %>
+    <p>
+      <%= link_to "Show this mistake", mistake %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New mistake", new_mistake_path %>
