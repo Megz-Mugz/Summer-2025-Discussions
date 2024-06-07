@@ -3,30 +3,39 @@ class UsersDatatable < Datatable
     {
       data: data,
       draw: params[:draw].to_i,
-      recordsTotal: 0,
-      recordsFiltered: 0
+      recordsTotal: User.count,
+      recordsFiltered: users.length
     }
   end
+
   private
+
   def data
     users.map do |user|
       [
-        'Foo',
-        'Bar',
-        'Bar',
-        'Bar',
-        'Bar',
-        'Bar',
+        user.id,
+        user.email,
+        user.name,
+        user.created_at,
+        user.mistakes.count
       ]
     end
   end
   def columns
     @columns ||= %w['' '']
   end
+
   def users
     @users ||= fetch_users
   end
+
   def fetch_users
-    User.all
+    # SQL
+    # JOINS => MIDDLE MAN TABLE
+    # COUNT() => number of mistakes per user
+    users = User.all
+
+
+    users
   end
 end

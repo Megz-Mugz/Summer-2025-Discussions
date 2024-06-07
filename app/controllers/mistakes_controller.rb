@@ -4,6 +4,13 @@ class MistakesController < ApplicationController
   # GET /mistakes or /mistakes.json
   def index
     @mistakes = Mistake.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: MistakesDatatable.new(view_context) }
+    end
+
+
   end
 
   # GET /mistakes/1 or /mistakes/1.json

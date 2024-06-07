@@ -1,14 +1,10 @@
 class Datatable
-  delegate :params, :link_to, :mail_to, to: :@view
-  attr_accessor :current_user
-  SORT_DIRECTION = {
-    :asc => 'asc'.freeze,
-    :desc => 'desc'.freeze
-  }
-  def initialize(view,user=nil)
+  delegate :params,  to: :@view
+
+  def initialize(view)
     @view = view
-    @current_user = user
   end
+
   def to_csv(options = {})
     @generating_csv = true
     csv_data = CSV.generate do |csv|
@@ -41,13 +37,17 @@ class Datatable
     #interface method - uses columns if nil
     columns.first(columns.size)
   end
+
   private
+
   def page
     params[:start].to_i/per_page + 1
   end
+
   def total_entry_count
     return 10
   end
+
   def per_page
     if @generating_csv
       total_entry_count
@@ -55,6 +55,7 @@ class Datatable
       params[:start].to_i >= 0 ? params[:length].to_i : 10
     end
   end
+
   def sort_column
     if params[:order].present?
       columns[params[:order]["0"][:column].to_i]
@@ -62,6 +63,7 @@ class Datatable
       columns[0]
     end
   end
+
   def sort_direction
     if @generating_csv
       params[:order] = "desc"
