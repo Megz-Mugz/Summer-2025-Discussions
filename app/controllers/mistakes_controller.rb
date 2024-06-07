@@ -72,6 +72,6 @@ class MistakesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def mistake_params
-      params.fetch(:mistake, {})
+      params.require(:mistake).permit(:name, :description, :severity)
     end
 end
