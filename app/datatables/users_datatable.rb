@@ -26,6 +26,10 @@ class UsersDatatable < Datatable
     end
   end
 
+  def show_link(user)
+    "<a href='#{show_user_path(user)}'>View/Edit</a>"
+  end
+
   def edit_link(user)
     "<a href='#{edit_user_path(user)}'>View/Edit</a>"
   end

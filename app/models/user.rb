@@ -8,5 +8,6 @@ class User < ApplicationRecord
 
 
   # VALIDATIONS FOR UNIQUENESS OF EMAILS
-  validates_uniqueness_of :email
+  validates_uniqueness_of :email, :presence => true
+  validates :name, :presence => true
 end

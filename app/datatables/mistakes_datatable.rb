@@ -19,7 +19,7 @@ class MistakesDatatable < Datatable
         mistake.id,
         mistake.name,
         mistake.description,
-        mistake.created_at,
+        mistake.created_at.strftime("%B %d, %Y"),
         edit_link(mistake),
         delete_button(mistake)
       ]
