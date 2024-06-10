@@ -7,14 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-user1 = User.find_or_create_by!(name: "Arya", email: "foo@mengle.com")
-user2 = User.find_or_create_by!(name: "Tito", email: "foo@mengle.com")
-user3 = User.find_or_create_by!(name: "Jacob", email: "foo@mengle.com")
-user4 = User.find_or_create_by!(name: "Anjali", email: "foo@mengle.com")
-user5 = User.find_or_create_by!(name: "Anjana", email: "foo@mengle.com")
-user6 = User.find_or_create_by!(name: "Rohan", email: "foo@mengle.com")
-user7 = User.find_or_create_by!(name: "Stephen", email: "foo@mengle.com")
-user8 = User.find_or_create_by!(name: "Joel", email: "foo@mengle.com")
+user1 = User.find_or_create_by!(name: "Arya", email: "foo1@mengle.com")
+user2 = User.find_or_create_by!(name: "Tito", email: "foo2@mengle.com")
+user3 = User.find_or_create_by!(name: "Jacob", email: "foo3@mengle.com")
+user4 = User.find_or_create_by!(name: "Anjali", email: "foo4@mengle.com")
+user5 = User.find_or_create_by!(name: "Anjana", email: "foo5@mengle.com")
+user6 = User.find_or_create_by!(name: "Rohan", email: "foo6@mengle.com")
+user7 = User.find_or_create_by!(name: "Stephen", email: "foo7@mengle.com")
+user8 = User.find_or_create_by!(name: "Joel", email: "foo8@mengle.com")
 
 mistake1 = Mistake.find_or_create_by!(name: "Debugger", severity: 1, description: "Left a deug statement in the code.")
 mistake2 = Mistake.find_or_create_by!(name: "Indentation", severity: 1, description: "Incorrect indentations.")
