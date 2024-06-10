@@ -28,7 +28,16 @@ $(document).on('turbo:load', function() {
             {
                 width: '10%',
                 orderable: false
+            }, 
+            {
+                width: '10%',
+                orderable: false
+            }, 
+            {
+                width: '10%',
+                orderable: false
             }
+
         ],
         ajax: {
             url: $('#users').data('source'),
@@ -64,7 +73,16 @@ $(document).on('turbo:load', function() {
             {
                 width: '10%',
                 orderable: false
+            }, 
+            {
+                width: '10%',
+                orderable: false
+            }, 
+            {
+                width: '10%',
+                orderable: false
             }
+
         ],
         ajax: {
             url: $('#mistakes').data('source'),

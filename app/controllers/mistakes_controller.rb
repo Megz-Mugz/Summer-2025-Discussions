@@ -56,6 +56,7 @@ class MistakesController < ApplicationController
 
   # DELETE /mistakes/1 or /mistakes/1.json
   def destroy
+    @mistake.mistake_users.destroy_all
     @mistake.destroy!
 
     respond_to do |format|

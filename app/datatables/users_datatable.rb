@@ -1,4 +1,6 @@
 class UsersDatatable < Datatable
+  delegate :user_path, :edit_user_path, :button_to, :delete_user_path, to: :@view, allow_nil: true
+
   def as_json(_options = {})
     {
       data: data,
@@ -17,10 +19,26 @@ class UsersDatatable < Datatable
         user.email,
         user.name,
         user.created_at,
-        user.mistakes.count
+        user.mistakes.count,
+        edit_link(user),
+        delete_button(user)
       ]
     end
   end
+
+  def edit_link(user)
+    "<a href='#{edit_user_path(user)}'>View/Edit</a>"
+  end
+
+  def delete_button(user)
+    <<-HTML
+    <form action="#{user_path(user)}" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete" data-confirm="Are you sure?">
+    </form>
+    HTML
+  end
+
   def columns
     @columns ||= %w['' '']
   end
@@ -30,12 +48,6 @@ class UsersDatatable < Datatable
   end
 
   def fetch_users
-    # SQL
-    # JOINS => MIDDLE MAN TABLE
-    # COUNT() => number of mistakes per user
-    users = User.all
-
-
-    users
+    User.all
   end
 end
