@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Mistake users</h1>
-
-<div id="mistake_users">
-  <% @mistake_users.each do |mistake_user| %>
-    <%= render mistake_user %>
-    <p>
-      <%= link_to "Show this mistake user", mistake_user %>
-    </p>
-  <% end %>
+<div class='container'>
+  <p style="color: green"><%= notice %></p>
+  <h1>User's Mistakes</h1>
+  <table class='table compact table-striped' id='mistake_users' data-source='<%= mistake_users_url(format: :json) %>'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Mistakes</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New mistake user", new_mistake_user_path %>

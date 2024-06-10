@@ -1,27 +1,31 @@
-<%= form_with(model: @mistake_user, local: true) do |form| %>
-  <% if @mistake_user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(mistake_user.errors.count, "error") %> prohibited this mistake_user from being saved:</h2>
+<div class="container centered-form coolio">
+  <%= form_with(model: @mistake_user, local: true, html: { class: 'form-horizontal' }) do |form| %>
+    <% if @mistake_user.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <h2><%= pluralize(@mistake_user.errors.count, "error") %> prohibited this mistake_user from being saved:</h2>
 
-      <ul>
-      <% mistake_user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @mistake_user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <h1>Womp Womp</h1>
+
+    <div class="form-group">
+      <%= form.label :user_id, 'Prepetrator: ', class: 'control-label' %>
+      <%= form.collection_select :user_id, User.all, :id, :name, prompt: 'Select a user', class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :mistake_id, 'Crime Committed: ', class: 'control-label' %>
+      <%= form.collection_select :mistake_id, Mistake.all, :id, :name, prompt: 'Select a mistake', class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit "Submit", class: 'btn btn-success' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :user_id, 'Name' %>
-    <%= form.collection_select :user_id, User.all, :id, :name, prompt: 'Select a user' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :mistake_id, 'Mistake' %>
-    <%= form.collection_select :mistake_id, Mistake.all, :id, :name, prompt: 'Select a mistake' %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -3,7 +3,10 @@ class MistakeUsersController < ApplicationController
 
   # GET /mistake_users or /mistake_users.json
   def index
-    @mistake_users = MistakeUser.all
+    respond_to do |format|
+      format.html
+      format.json { render json: MistakeUsersDatatable.new(view_context) }
+    end
   end
 
   # GET /mistake_users/1 or /mistake_users/1.json

@@ -1,6 +1,42 @@
 @import 'bootstrap';
 
+.dark-mode {
+    background-color: gray;
+    color: white;
+  }
 
-// li {
-//     background-color: red;
-// }
+
+/* app/assets/stylesheets/custom.css */
+.centered-form {
+    max-width: 600px;
+    margin: 50px auto;
+
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    border-style: dashed;
+    background-color: #f9f9f9;
+  }
+  
+  .centered-form h2 {
+    font-size: 24px;
+  }
+  
+  .centered-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .centered-form .form-control {
+    font-size: 18px;
+    padding: 100px;
+  }
+  
+  .centered-form .btn {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
+  .coolio:hover{
+    background-color: rgb(169, 163, 163);
+  }
+  
