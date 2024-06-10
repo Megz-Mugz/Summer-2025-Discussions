@@ -18,7 +18,7 @@ class UsersDatatable < Datatable
         user.id,
         user.email,
         user.name,
-        user.created_at,
+        user.created_at.strftime("%B %d, %Y"),
         user.mistakes.count,
         edit_link(user),
         delete_button(user)

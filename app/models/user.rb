@@ -8,5 +8,5 @@ class User < ApplicationRecord
 
 
   # VALIDATIONS FOR UNIQUENESS OF EMAILS
-
+  validates_uniqueness_of :email
 end
