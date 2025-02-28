@@ -15,8 +15,9 @@
     <h1> dsfsdf</h1>
 
     <div class="form-group">
-
       
+
+
       <%= form.label :user_id, 'Prepetrator: ', class: 'control-label' %>
       <%= form.collection_select :user_id, User.all, :id, :name, prompt: 'Select a user', class: 'form-control' %>
     </div>
