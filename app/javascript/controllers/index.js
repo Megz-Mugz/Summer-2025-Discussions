@@ -11,9 +11,12 @@ eagerLoadControllersFrom("controllers", application)
 // lazyLoadControllersFrom("controllers", application)
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    darkModeToggle.addEventListener('click', function() {
-      document.body.classList.toggle('dark-mode');
-    });
+$(document).ready(function() {
+  debugger
+  $(".sign-in-submit").on("click", function() {
+    debugger
+      event.preventDefault(); // Prevents form submission (for debugging purposes)
+
+      console.log($('.email-field').val());
   });
+});
