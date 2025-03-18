@@ -14,30 +14,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_07_193032) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "mistake_users", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "mistake_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["mistake_id"], name: "index_mistake_users_on_mistake_id"
-    t.index ["user_id"], name: "index_mistake_users_on_user_id"
-  end
 
-  create_table "mistakes", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "severity"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_foreign_key "mistake_users", "mistakes"
-  add_foreign_key "mistake_users", "users"
 end
